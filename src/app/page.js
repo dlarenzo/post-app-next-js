@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Main from "./components/Main";
-import AllPosts from "./components/AllPosts";
-import Create from "./components/Create";
+import Main from "../../components/Main";
+import AllPosts from "../../components/AllPosts";
+import Create from "../../components/Create";
 
 export default function Home() {
   return (

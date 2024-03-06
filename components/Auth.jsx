@@ -3,8 +3,8 @@ import React from "react";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
-import { auth } from "../../firebase";
-import useAuth from "../../hooks/useAuth";
+import { auth } from "../src/firebase";
+import useAuth from "../src/hooks/useAuth";
 
 const Auth = () => {
   const { isLoggedIn, user } = useAuth();

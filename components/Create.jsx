@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { useToast } from "@chakra-ui/react";
-import useAuth from "../../hooks/useAuth";
-import { addPost } from "../../api/post";
+import useAuth from "../src/hooks/useAuth";
+import { addPost } from "../src/api/post";
 import Link from "next/link";
 
 const Create = () => {
@@ -48,7 +48,7 @@ const Create = () => {
           <div className="p-10">
             <form>
               <div className="mb-5">
-                <label class="font-extrabold ">Title</label>
+                <label className="font-extrabold ">Title</label>
                 <input
                   type="text"
                   placeholder="Title of your post"

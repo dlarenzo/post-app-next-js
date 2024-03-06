@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { useToast } from "@chakra-ui/react";
-import useAuth from "../src/hooks/useAuth";
-import { addPost } from "../src/api/post";
+import useAuth from "../../hooks/useAuth";
+import { addPost } from "../../api/post";
 import Link from "next/link";
 
 const Create = () => {

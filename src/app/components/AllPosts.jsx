@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import useAuth from "../src/hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import {
   collection,
   onSnapshot,
@@ -10,8 +10,8 @@ import {
   doc,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../src/firebase";
-import { deletePost } from "../src/api/post";
+import { db } from "../../firebase";
+import { deletePost } from "../../api/post";
 import { useToast } from "@chakra-ui/react";
 import AllPostCard from "./AllPostCard";
 

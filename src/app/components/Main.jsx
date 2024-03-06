@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import AllPosts from "./AllPosts";
 import { useToast } from "@chakra-ui/react";
-import useAuth from "../src/hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Main = () => {
   const toast = useToast();

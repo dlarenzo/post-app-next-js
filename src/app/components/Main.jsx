@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import AllPosts from "./AllPosts";
+import Auth from "./Auth";
 
 const Main = () => {
   return (

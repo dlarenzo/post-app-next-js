@@ -3,8 +3,8 @@ import Create from "../components/Create";
 
 const create = () => {
   return (
-    <div>
-      <Create />
+    <div className="pt-24">
+      <Create className="" />
     </div>
   );
 };

@@ -32,7 +32,12 @@ const Auth = () => {
     <div className="fixed w-full p-5 border-b border-slate-500">
       {isLoggedIn && (
         <>
-          <Link className="text-red-600" onClick={() => auth.signOut()}>
+          <p className="text-white">Welcome, {user.email}</p>
+          <Link
+            href="/"
+            className="text-red-600"
+            onClick={() => auth.signOut()}
+          >
             {" "}
             Logout
           </Link>

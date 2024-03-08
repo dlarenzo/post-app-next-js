@@ -40,7 +40,7 @@ const EditCard = () => {
 
   useEffect(() => {
     refreshData();
-  }, [user]);
+  });
 
   const handlePostDelete = async (id) => {
     if (confirm("Are you sure you want to delete this Post?")) {

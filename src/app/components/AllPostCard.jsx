@@ -104,7 +104,7 @@ const AllPostCard = ({ params }) => {
                 // href="/edit/1"
 
                 onClick={() =>
-                  router.push(`/${post.id}`, {
+                  router.push(`/post/${post.id}`, {
                     id: post.id,
                     title: post.title,
                     description: post.description,

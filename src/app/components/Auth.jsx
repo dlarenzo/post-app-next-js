@@ -33,10 +33,10 @@ const Auth = () => {
       <div>
         {isLoggedIn && (
           <>
-            <p className="text-white">Welcome, {user.email}</p>
+            <p className="text-white mb-4">Welcome, {user.email}</p>
             <Link
               href="/"
-              className="text-red-600"
+              className="text-white border border-red-600 bg-red-600 rounded-full py-2 px-6"
               onClick={() => auth.signOut()}
             >
               {" "}

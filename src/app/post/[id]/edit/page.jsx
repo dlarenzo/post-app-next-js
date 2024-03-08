@@ -1,10 +1,21 @@
+// This is the page that will be displayed when the user navigates to localhost:3000/[id]/edit.
+
+//currently, the page is not displaying anything.
+
 "use client";
 
 import React from "react";
+import { useState } from "react";
+import { useToast } from "@chakra-ui/react";
 
 const page = ({ params }) => {
   const id = params.id;
   console.log(id);
+
+  const [posts, setPosts] = useState([]);
+  const [editPost, setEditPost] = useState(null);
+  const toast = useToast();
+
   return (
     <div>
       <div className="pt-24 text-black">page</div>

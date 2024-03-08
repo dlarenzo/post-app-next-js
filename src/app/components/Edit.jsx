@@ -36,7 +36,7 @@ const Edit = () => {
 
   useEffect(() => {
     refreshData();
-  }, [user]);
+  });
 
   const handleEditPost = (post) => {
     setEditPost({ ...post }); // Make a copy of the post object
@@ -56,7 +56,7 @@ const Edit = () => {
   };
 
   return (
-    <div>
+    <div className="bg-slate-800  flex min-h-screen flex-col items-center justify-between p-24">
       <div className="w-4/5 bg-slate-800 p-10 mx-auto ">
         <h1 className="text-center font-extrabold text-5xl mb-10">
           Update Your Post
@@ -65,7 +65,7 @@ const Edit = () => {
           <div className="p-10">
             <form>
               <div className="mb-5">
-                <label className="font-extrabold ">Title</label>
+                <label className="mb-3 font-extrabold text-white">Title</label>
                 <input
                   type="text"
                   placeholder="Name your post"

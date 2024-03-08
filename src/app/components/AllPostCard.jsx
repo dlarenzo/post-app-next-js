@@ -35,6 +35,9 @@ const AllPostCard = ({ params }) => {
       //deleteDoc refers to the function that deletes the document
       //postRef refers to the reference of the document
       await deleteDoc(postRef);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 500);
       toast({ title: "Post deleted successfully", status: "success" });
       refreshData(); // Refresh the data after deleting a post
     }
@@ -42,6 +45,7 @@ const AllPostCard = ({ params }) => {
 
   const refreshData = () => {
     if (!user) {
+      //setPosts refers to the function that sets the state of the posts
       setPosts([]);
       return;
     }
@@ -55,9 +59,16 @@ const AllPostCard = ({ params }) => {
     });
   };
 
+  //useEffect refers to the function that runs after the component renders
   useEffect(() => {
     const fetchPosts = async () => {
+      //try refers to the block of code to be tested for errors
       try {
+        //const refers to the promise of the getDocs function
+        //getDocs refers to the function that fetches the documents
+        //postCollection refers to the reference of the collection
+        //db refers to the firebase database
+        //posts refers to the collection set up in firebase
         const postCollection = collection(db, "posts");
         const snapshot = await getDocs(postCollection);
         const postData = snapshot.docs.map((doc) => ({
@@ -65,6 +76,7 @@ const AllPostCard = ({ params }) => {
           ...doc.data(),
         }));
         setPosts(postData);
+        console.log("Posts: ", postData);
       } catch (error) {
         console.error("Error fetching posts: ", error);
       }
@@ -92,7 +104,7 @@ const AllPostCard = ({ params }) => {
                 // href="/edit/1"
 
                 onClick={() =>
-                  router.push(`/edit/${post.id}`, {
+                  router.push(`/${post.id}`, {
                     id: post.id,
                     title: post.title,
                     description: post.description,
@@ -103,13 +115,13 @@ const AllPostCard = ({ params }) => {
                 Edit
               </button>
 
-              <Link
-                href="/"
+              <button
+                type="submit"
                 className=" bg-red-600 px-10 py-2 rounded-full"
                 onClick={() => handlePostDelete(post.id)}
               >
                 Delete
-              </Link>
+              </button>
             </div>
           </div>
         </div>

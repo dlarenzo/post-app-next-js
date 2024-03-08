@@ -32,7 +32,11 @@ const Create = () => {
       // redirect to home after 2 seconds
       setTimeout(() => {
         window.location.href = "/";
-      }, 2000);
+      }, 300);
+      toast({
+        title: "Post created successfully",
+        status: "success",
+      });
     } catch (error) {
       console.log(error);
     }

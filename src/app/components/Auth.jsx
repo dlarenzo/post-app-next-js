@@ -29,30 +29,38 @@ const Auth = () => {
       });
   };
   return (
-    <div className="fixed w-full p-5 border-b border-slate-500">
-      {isLoggedIn && (
-        <>
-          <p className="text-white">Welcome, {user.email}</p>
-          <Link
-            href="/"
-            className="text-red-600"
-            onClick={() => auth.signOut()}
+    <div className="fixed bg-black w-full p-5 border-b border-slate-500 flex justify-between items-center">
+      <div>
+        {isLoggedIn && (
+          <>
+            <p className="text-white">Welcome, {user.email}</p>
+            <Link
+              href="/"
+              className="text-red-600"
+              onClick={() => auth.signOut()}
+            >
+              {" "}
+              Logout
+            </Link>
+          </>
+        )}
+        {!isLoggedIn && (
+          <button
+            onClick={() => handleAuth()}
+            className="w-auto bg-white flex items-center px-10 py-3 border border-slate-800 rounded"
           >
             {" "}
-            Logout
-          </Link>
-        </>
-      )}
-      {!isLoggedIn && (
-        <button
-          onClick={() => handleAuth()}
-          className="w-auto bg-slate-800 flex items-center px-10 py-3 border border-slate-800 rounded"
-        >
-          {" "}
-          <FaGoogle className="mr-5" />
-          Login With Google
-        </button>
-      )}
+            <FaGoogle className="mr-5" />
+            Login With Google
+          </button>
+        )}
+      </div>
+      <Link
+        href="/"
+        className="font-extrabold text-xl bg-blue-600 px-10 py-2 rounded-full"
+      >
+        Home
+      </Link>
     </div>
   );
 };

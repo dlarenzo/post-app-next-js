@@ -5,77 +5,84 @@ import { useToast } from "@chakra-ui/react";
 import useAuth from "../../hooks/useAuth";
 import { addPost } from "../../api/post";
 import Link from "next/link";
+import { db } from "../../firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 const Create = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [post, setPost] = useState({
+    title: "",
+    description: "",
+  }); // [1]
+
   const [isLoading, setIsLoading] = React.useState(false);
   const toast = useToast();
-  const { isLoggedIn, user } = useAuth();
+  const handleChanges = (e) => {
+    setPost({ ...post, [e.target.name]: e.target.value });
+  };
 
-  const handleCreatePost = async () => {
-    if (!isLoggedIn) {
-      toast({
-        title: "You are not logged in",
-        description: "Please login to create a post",
-        status: "error",
-        duration: 9000,
-        isClosable: true,
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const docRef = await addDoc(collection(db, "posts"), post);
+      console.log("Document written with ID: ", docRef.id);
+      setPost({
+        title: "",
+        description: "",
       });
-      return;
+      // redirect to home after 2 seconds
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
+    } catch (error) {
+      console.log(error);
     }
-
-    setIsLoading(true);
-    const post = {
-      title,
-      description,
-      userId: user.uid,
-    };
-    await addPost(post);
-    setIsLoading(false);
-    setTitle("");
-    setDescription("");
-    toast({ title: "Post created successfully", status: "success" });
   };
 
   return (
     <div className="">
       <div className="w-4/5 bg-slate-800 p-10 mx-auto ">
-        <h1 className="text-center font-extrabold text-5xl my-10">
+        <h1 className="text-center text-white font-extrabold text-5xl my-10">
           Create Your Post
         </h1>
-        <div className="w-full bg-slate-400 border-4 border-white rounded">
+        <div className="w-full bg-black border-4 border-white rounded">
           <div className="p-10">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-5">
-                <label className="font-extrabold ">Title</label>
+                <label className="mb-3 font-extrabold text-white">Title</label>
                 <input
                   type="text"
+                  name="title"
                   placeholder="Title of your post"
-                  className="w-full py-1 text-black"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
+                  className="w-full py-1 px-2 text-black bg-white rounded"
+                  value={post.title}
+                  onChange={handleChanges}
                 />
               </div>
               <div className=" flex flex-col mb-5 ">
-                <label className="mb-3 font-extrabold">Write It Up!</label>
+                <label className="mb-3 font-extrabold text-white">
+                  Write It Up!
+                </label>
                 <textarea
                   rows="6"
                   cols="50"
-                  className="text-black"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  name="description"
+                  placeholder="Start posting away!"
+                  className="text-black py-1 px-2 bg-white rounded"
+                  value={post.description}
+                  onChange={handleChanges}
                 />
               </div>
               <div className="flex justify-center">
                 <button
-                  onClick={() => handleCreatePost()}
+                  type="submit "
                   disabled={
-                    title.length < 1 || description.length < 1 || isLoading
+                    post.title.length < 1 ||
+                    post.description.length < 1 ||
+                    isLoading
                   }
-                  className=" bg-green-600 px-10 py-2 rounded-full"
+                  className=" bg-blue-600 text-white px-10 py-2 rounded-full"
                 >
-                  <Link href="/">Post It</Link>
+                  Post It
                 </button>
               </div>
             </form>

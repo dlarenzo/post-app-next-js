@@ -69,13 +69,9 @@ const AllPosts = () => {
 
   return (
     <div>
-      {posts.map((post) => (
-        <AllPostCard
-          key={post.id}
-          title={post.title}
-          description={post.description}
-        />
-      ))}
+      <div>
+        <AllPostCard />
+      </div>
     </div>
   );
 };

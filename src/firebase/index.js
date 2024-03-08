@@ -9,13 +9,21 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+// NEXT_PUBLIC_API_KEY = "AIzaSyDPZk8v72BIDq-DbkZyNq-wwvERDig0QuU";
+// NEXT_PUBLIC_AUTH_DOMAIN = "post-app-f1227.firebaseapp.com";
+// (NEXT_PUBLIC_PROJECT_ID = "post-app-f1227"),
+//   (NEXT_PUBLIC_STORAGE_BUCKET = "post-app-f1227.appspot.com");
+// NEXT_PUBLIC_MESSAGING_SENDER_ID = "132703251195";
+// NEXT_PUBLIC_APP_ID = "1:132703251195:web:e625286c22a4cf7257de5e";
+
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_APP_ID,
+  apiKey: "AIzaSyDPZk8v72BIDq-DbkZyNq-wwvERDig0QuU",
+  authDomain: "post-app-f1227.firebaseapp.com",
+  projectId: "post-app-f1227",
+  storageBucket: "post-app-f1227.appspot.com",
+  messagingSenderId: "132703251195",
+  appId: "1:132703251195:web:e625286c22a4cf7257de5e",
 };
 
 // Initialize Firebase

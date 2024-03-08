@@ -6,6 +6,8 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
+// import AllPostCard from "../app/components/AllPosts";
+// import AllPostCard from "../app/components/AllPostCard";
 
 const addPost = async ({ userId, title, description }) => {
   try {

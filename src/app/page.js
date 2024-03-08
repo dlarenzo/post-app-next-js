@@ -5,7 +5,7 @@ import Create from "./components/Create";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="bg-slate-800  flex min-h-screen flex-col items-center justify-between p-24">
       <Main />
     </main>
   );

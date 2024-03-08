@@ -1,10 +1,10 @@
 import React from "react";
-import Edit from "../components/Edit";
+import EditCard from "../components/EditCard";
 
 const edit = () => {
   return (
-    <div>
-      <Edit />
+    <div className="pt-24">
+      <EditCard />
     </div>
   );
 };

@@ -44,8 +44,11 @@ const Create = () => {
 
   return (
     <div className="">
-      <div className="w-full bg-black pt-24">
+      <div className="w-full h-screen bg-slate-800 pt-24">
         <div className="w-4/5 bg-slate-800 p-10 mx-auto ">
+          <h1 className="text-center font-extrabold text-5xl text-white mb-10">
+            Update Your Post
+          </h1>
           <div className="w-full bg-black border-4 border-white rounded">
             <div className="p-10">
               <form onSubmit={handleSubmit}>

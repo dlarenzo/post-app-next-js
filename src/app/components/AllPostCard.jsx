@@ -93,9 +93,11 @@ const AllPostCard = ({ params }) => {
           className="w-full bg-black border-4 border-white rounded mb-5"
         >
           <div className="p-10">
-            <h3 className="py-1 px-2 bg-white text-black rounded mb-5 font-extralight">
+            <h3 className="text-white pb-3 font-extrabold text-lg">Title</h3>
+            <p className="py-1 px-2 bg-white text-black rounded mb-5 font-extralight">
               {post.title}
-            </h3>
+            </p>
+            <h3 className="text-white pb-3 font-extrabold text-lg">Post</h3>
             <p className="py-1 px-2 mb-10 bg-white text-black rounded font-extralight">
               {post.description}
             </p>

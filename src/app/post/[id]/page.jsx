@@ -85,12 +85,12 @@ const EditPost = ({ params }) => {
 
   return (
     <div>
-      <div className="w-4/5 bg-slate-800 p-10 mx-auto ">
-        <h1 className="text-center font-extrabold text-5xl mb-10">
+      <div className="w-full h-screen bg-slate-800 px-10 pt-28 mx-auto ">
+        <h1 className="text-center font-extrabold text-5xl text-white my-10">
           Update Your Post
         </h1>
-        <div className="w-full bg-black border-4 border-white rounded">
-          <div className="p-10">
+        <div className="w-4/5 flex justify-center rounded mx-auto ">
+          <div className="w-4/5 bg-black border-4 border-white rounded p-10">
             <form onSubmit={handleUpdate}>
               <div className="mb-5">
                 <label className="mb-3 font-extrabold text-white">Title</label>
